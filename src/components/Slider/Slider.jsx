@@ -40,23 +40,28 @@ export const SliderBox = () => {
     };
 
     return (
-        <div className='flex flex-col w-full p-10 items-center'>
-            <Slider {...settings} className='w-10/12'>
-                {data.map((item, index) =>
-                    <div key={index} className='important-box'>
-                        <img className='w-72 rounded-md' src={item.image} alt={`imagem do produto ${item.name}`}></img>
-                        <h1 className='lg:text-xl text-xs uppercase font-semibold '>{item.name}</h1>
-                        <p className='lg:text-xl text-sm font-semibold'>${item.price}</p>
-                        <div className='flex flex-col w-full'>
-                            <div className='flex lg:text-xl text-sm bg-azul-100 p-1 rounded-lg font-semibold mt-1'>
-                                <Link className='m-auto' to={item.link} target="_blank">Comprar em CSSBUY</Link>
+        <>
+            <div className='flex flex-col w-full p-10 items-center'>
+                <Slider {...settings} className='w-10/12'>
+                    {data.map((item, index) =>
+                        <div key={index} className='important-box'>
+                            <img className='w-72 rounded-md' src={item.image} alt={`imagem do produto ${item.name}`}></img>
+                            <h1 className='lg:text-xl text-xs uppercase font-semibold '>{item.name}</h1>
+                            <p className='lg:text-xl text-sm font-semibold'>${item.price}</p>
+                            <div className='flex flex-col w-full'>
+                                <div className='flex lg:text-xl text-sm bg-azul-100 p-1 rounded-lg font-semibold mt-1'>
+                                    <Link className='m-auto' to={item.link} target="_blank">Comprar em CSSBUY</Link>
+                                </div>
+                                <div className='flex lg:text-xl text-sm bg-dark-100 p-1 rounded-lg font-semibold mt-1'>
+                                    <Link className='m-auto' to={item.quality} target="_blank">Ver a Qualidade</Link>
+                                </div>
                             </div>
-                            <div className='flex lg:text-xl text-sm bg-dark-100 p-1 rounded-lg font-semibold mt-1'>
-                                <Link className='m-auto' to={item.quality} target="_blank">Ver a Qualidade</Link>
-                            </div>
-                        </div>
-                    </div>)}
-            </Slider>
-        </div>
+                        </div>)}
+                </Slider>
+            </div>
+            <div className='flex items-center justify-center'>
+                <Link to="/produtos" className='text-white bg-dark-200 py-2 px-6 text-3xl rounded-lg'>Ver tudo</Link>
+            </div>
+        </>
     )
 }

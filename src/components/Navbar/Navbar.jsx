@@ -21,10 +21,7 @@ export default function Navbar() {
                     <li>
                         <Link to="/produtos">Produtos</Link>
                     </li>
-                    <li>
-                        <Link to="/faq">FAQ</Link>
-                    </li>
-                    <buton className="cursor-pointer lg:text-2xl text-sm font-semibold border border-white rounded-lg p-1 hover:text-azul-100 hover:border-azul-100">Entre no Discord</buton>
+                    <button className="cursor-pointer lg:text-2xl text-sm font-semibold border border-white rounded-lg p-1 hover:text-azul-100 hover:border-azul-100">Entre no Discord</button>
                 </ul>
                 <div className='lg:hidden' onClick={toggleMenu}>
                     {isOpen ? (

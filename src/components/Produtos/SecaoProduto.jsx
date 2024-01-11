@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { data } from '../../data/data';
 import { Link } from 'react-router-dom';
+import Busca from '../Busca/Busca';
 
 export default function SecaoProduto() {
 
@@ -17,6 +18,7 @@ export default function SecaoProduto() {
 
     return (
         <div className='flex flex-col h-full items-center'>
+            <Busca />
             <div>
                 <h1 className='text-white text-xl'>Produtos</h1>
             </div>
@@ -36,11 +38,17 @@ export default function SecaoProduto() {
             <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-1'>
                 {cat.map((item, index) =>
                     <div key={index} className='text-white flex flex-col m-2 bg-dark-200 p-2 rounded-xl hover:scale-105'>
-                        <img className='rounded-md' src={item.image} alt={`imagem do produto ${item.name}`}></img>
+                        <img className='rounded-md my-auto' src={item.image} alt={`imagem do produto ${item.name}`}></img>
                         <h1 className='lg:text-xl text-xs uppercase font-semibold '>{item.name}</h1>
                         <p className='lg:text-xl text-sm font-semibold'>${item.price}</p>
-                        <Link className='lg:text-xl text-sm bg-azul-100 p-1 rounded-lg font-semibold items-center ' to={item.link} target="_blank">Comprar em CSSBUY</Link>
-                        <Link className='lg:text-xl text-sm bg-dark-100 p-1 rounded-lg font-semibold mt-2' to={item.quality} target="_blank">Ver a Qualidade</Link>
+                        <div className='flex flex-col w-full'>
+                            <div className='flex lg:text-xl text-sm bg-azul-100 p-1 rounded-lg font-semibold mt-1'>
+                                <Link className='m-auto' to={item.link} target="_blank">Comprar em CSSBUY</Link>
+                            </div>
+                            <div className='flex lg:text-xl text-sm bg-dark-100 p-1 rounded-lg font-semibold mt-1'>
+                                <Link className='m-auto' to={item.quality} target="_blank">Ver a Qualidade</Link>
+                            </div>
+                        </div>
                     </div>)}
             </div>
         </div >

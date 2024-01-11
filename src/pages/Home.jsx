@@ -20,12 +20,9 @@ export default function Home() {
             </main>
             <SliderBox />
             <div className='flex flex-col items-center mt-10'>
-                <h1 className='text-white text-5xl font-bold uppercase'>Precisa de Ajuda?</h1>
-                <p className='text-white text-2xl'>Entre na comunidade para suporte 24/7</p>
-                <Link to="" className='bg-dark-200 p-3 text-white text-3xl font-bold rounded-lg mt-10'>Entre no Discord</Link>
-                <div>
-
-                </div>
+                <h1 className='text-white lg:text-5xl md:text-4xl xs:text-xl font-bold uppercase'>Precisa de Ajuda?</h1>
+                <p className='text-white lg:text-2xl md:text-2xl xs:text-xl'>Entre na comunidade para suporte 24/7</p>
+                <Link to="" className='bg-dark-200 p-3 text-white lg:text-3xl md:text-2xl xs:text-xl font-bold rounded-lg mt-10'>Entre no Discord</Link>
             </div>
             <Footer />
         </div>

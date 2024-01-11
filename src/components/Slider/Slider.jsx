@@ -60,7 +60,7 @@ export const SliderBox = () => {
                 </Slider>
             </div>
             <div className='flex items-center justify-center'>
-                <Link to="/produtos" className='text-white bg-dark-200 py-2 px-6 text-3xl rounded-lg'>Ver tudo</Link>
+                <Link to="/produtos" className='text-white bg-dark-200 py-2 px-6 lg:text-3xl md:text-2xl xs:text-xl rounded-lg'>Ver tudo</Link>
             </div>
         </>
     )

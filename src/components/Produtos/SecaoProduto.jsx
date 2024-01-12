@@ -8,6 +8,15 @@ export default function SecaoProduto() {
 
     const [cat, setCat] = useState(data);
 
+    const [filteredItem, setFilteredItem] = useState(cat);
+
+    const handleQuery = (query) => {
+        const filtered = cat.filter((item) =>
+            String(item.name).toLowerCase().includes(query.toLowerCase())
+        );
+        setFilteredItem(filtered);
+    }
+
     const filtroCat = (categoria) => {
         setCat(
             data.filter((item) => {
@@ -18,12 +27,12 @@ export default function SecaoProduto() {
 
     return (
         <div className='flex flex-col h-full items-center'>
-            <Busca />
+            <Busca info={cat} onSearch={handleQuery} />
             <div>
-                <h1 className='text-white text-xl'>Produtos</h1>
+                <h1 className='text-white text-4xl'>Produtos</h1>
             </div>
             <div className='flex flex-col items-center'>
-                <p className='text-white text-xl'>Filtros</p>
+                <p className='text-white text-2xl'>Filtros</p>
                 <div className='m-2 lg:flex-none sm:flex sm:flex-row items-center'>
                     <button onClick={() => setCat(data)}>Todos</button>
                     <button onClick={() => filtroCat('shoes')}>Sapatos</button>
@@ -36,7 +45,7 @@ export default function SecaoProduto() {
                 </div >
             </div >
             <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-1'>
-                {cat.map((item, index) =>
+                {filteredItem.map((item, index) =>
                     <div key={index} className='text-white flex flex-col m-2 bg-dark-200 p-2 rounded-xl hover:scale-105'>
                         <img className='rounded-md my-auto' src={item.image} alt={`imagem do produto ${item.name}`}></img>
                         <h1 className='lg:text-xl text-xs uppercase font-semibold '>{item.name}</h1>

@@ -11,18 +11,17 @@ export default function SecaoProduto() {
     const [filteredItem, setFilteredItem] = useState(cat);
 
     const handleQuery = (query) => {
-        const filtered = cat.filter((item) =>
+        const busca = cat.filter((item) =>
             String(item.name).toLowerCase().includes(query.toLowerCase())
         );
-        setFilteredItem(filtered);
+        setFilteredItem(busca);
     }
 
     const filtroCat = (categoria) => {
-        setCat(
-            data.filter((item) => {
-                return item.category === categoria
-            })
-        )
+        const filtro = cat.filter((item) => {
+            return item.category === categoria
+        })
+        setFilteredItem(filtro);
     }
 
     return (
@@ -34,7 +33,7 @@ export default function SecaoProduto() {
             <div className='flex flex-col items-center'>
                 <p className='text-white text-2xl'>Filtros</p>
                 <div className='m-2 lg:flex-none sm:flex sm:flex-row items-center'>
-                    <button onClick={() => setCat(data)}>Todos</button>
+                    <button onClick={() => setFilteredItem(data)}>Todos</button>
                     <button onClick={() => filtroCat('shoes')}>Sapatos</button>
                     <button onClick={() => filtroCat('shirt')}>Camiseta</button>
                     <button onClick={() => filtroCat('hoodie')}>Hoodies</button>
@@ -48,13 +47,13 @@ export default function SecaoProduto() {
                 {filteredItem.map((item, index) =>
                     <div key={index} className='text-white flex flex-col m-2 bg-dark-200 p-2 rounded-xl hover:scale-105'>
                         <img className='rounded-md my-auto' src={item.image} alt={`imagem do produto ${item.name}`}></img>
-                        <h1 className='lg:text-xl text-xs uppercase font-semibold '>{item.name}</h1>
+                        <h1 className='lg:text-xl text-xs uppercase font-medium '>{item.name}</h1>
                         <p className='lg:text-xl text-sm font-semibold'>${item.price}</p>
                         <div className='flex flex-col w-full'>
-                            <div className='flex lg:text-xl text-sm bg-azul-100 p-1 rounded-lg font-semibold mt-1'>
+                            <div className='flex lg:text-xl text-sm bg-azul-100 p-1 rounded-lg font-medium mt-1'>
                                 <Link className='m-auto' to={item.link} target="_blank">Comprar em CSSBUY</Link>
                             </div>
-                            <div className='flex lg:text-xl text-sm bg-dark-100 p-1 rounded-lg font-semibold mt-1'>
+                            <div className='flex lg:text-xl text-sm bg-dark-100 p-1 rounded-lg font-medium mt-1'>
                                 <Link className='m-auto' to={item.quality} target="_blank">Ver a Qualidade</Link>
                             </div>
                         </div>
